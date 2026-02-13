@@ -1,0 +1,8 @@
+{
+  "destination": "/mnt/backup",
+  "paths": [
+    "/root",
+    "/var/lib/docker/volumes"
+  ],
+  "schedule": "0 1 * * *"
+}
