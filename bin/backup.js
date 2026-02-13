@@ -47,4 +47,25 @@ program
     require("../lib/scheduler").startInterval(parseInt(days));
   });
 
+program
+  .command("logs")
+  .description("Exibir todos os logs de backup")
+  .action(() => {
+    const { getLogs } = require("../lib/logger");
+    console.log(getLogs());
+  });
+
+program
+  .command("clear-logs")
+  .description("Limpar o arquivo de logs de backup")
+  .action(() => {
+    const { clearLogs, log } = require("../lib/logger");
+    if (clearLogs()) {
+      console.log("Logs limpos com sucesso.");
+      log("Logs limpos manualmente."); // opcional, registra que limpou
+    } else {
+      console.log("Nenhum log encontrado para limpar.");
+    }
+  });
+
 program.parse();
