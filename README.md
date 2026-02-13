@@ -71,3 +71,6 @@ Agendar diário às 2h:
 backup schedule "0 2 * * *"
 backup start
 ```
+
+# Dar permissão
+chmod +x bin/backup.js
