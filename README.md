@@ -1,3 +1,9 @@
+# Backup Automático Node.js
+
+Sistema de backup automatizado para arquivos e volumes Docker, com suporte a **CLI**, **agendamento via cron**, e **logs**.
+
+---
+
 ## 📌 Comandos disponíveis
 
 | Comando           | O que faz                                                                         |
@@ -13,7 +19,7 @@
 
 ---
 
-# 🚀 Como instalar o projeto
+## 🚀 Como instalar o projeto
 
 ### 1️⃣ Clonar o repositório
 
@@ -45,32 +51,76 @@ Isso permite usar o comando globalmente no sistema.
 
 ---
 
-# ▶️ Exemplo de uso
+## ▶️ Exemplo de uso
 
-Adicionar pasta:
+### 1. Adicionar caminho ao backup
+
+Adicione o diretório ou arquivo para o backup:
 
 ```bash
 backup add /home/user/documentos
 ```
 
-Definir destino:
+### 2. Definir destino do backup
+
+Defina o diretório onde os backups serão armazenados:
 
 ```bash
 backup dest /mnt/backups
 ```
 
-Executar manualmente:
+### 3. Executar backup manualmente
+
+Execute um backup imediato:
 
 ```bash
 backup run
 ```
 
-Agendar diário às 2h:
+### 4. Agendar backup diário às 2h
+
+Defina o agendamento no formato cron para rodar diariamente às 2h da manhã:
 
 ```bash
 backup schedule "0 2 * * *"
 backup start
 ```
 
-# Dar permissão
+---
+
+## 📅 Agendamento via cron
+
+O agendamento do backup é feito via **cron**, de acordo com a sua configuração no sistema. Para agendar o comando `backup run` automaticamente, siga as etapas abaixo:
+
+### 1. Abra o crontab para editar
+
+```bash
+crontab -e
+```
+
+### 2. Adicione a linha abaixo para rodar o backup todos os dias à meia-noite (00:00)
+
+```cron
+0 0 * * * backup run
+```
+
+Isso agendará o comando `backup run` para ser executado todos os dias à meia-noite.
+
+---
+
+## 🔑 Dar permissão de execução
+
+Se você estiver usando o **CLI** e precisar tornar o script executável, use o comando:
+
+```bash
 chmod +x bin/backup.js
+```
+
+---
+
+## 💡 Dicas
+
+* **Permissões**: Certifique-se de que o usuário que executa o backup tem permissão de leitura nos caminhos e gravação no destino.
+* **Volumes Docker**: Para backups de volumes Docker, garanta que os volumes estejam montados corretamente.
+* **Espaço em Disco**: Monitore o espaço em disco para garantir que há espaço suficiente para os backups.
+

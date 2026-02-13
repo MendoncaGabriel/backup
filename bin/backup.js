@@ -2,8 +2,7 @@
 
 const { program } = require("commander");
 const { runBackup } = require("../lib/runner.js");
-const { addPath, listPaths, removePath, setDestination, setSchedule } = require("../lib/config.js");
-const { startScheduler } = require("../lib/scheduler.js");
+const { addPath, listPaths, removePath, setDestination } = require("../lib/config.js");
 
 program
   .command("run")
@@ -42,27 +41,6 @@ program
   .description("Definir destino base do backup")
   .action((path) => {
     setDestination(path);
-  });
-
-program
-  .command("schedule <cron>")
-  .description("Definir agendamento (formato cron)")
-  .action((cron) => {
-    setSchedule(cron);
-  });
-
-program
-  .command("start")
-  .description("Iniciar agendador")
-  .action(() => {
-    startScheduler();
-  });
-
-program
-  .command("interval <days>")
-  .description("Executar backup a cada X dias")
-  .action((days) => {
-    require("../lib/scheduler.js").startInterval(parseInt(days));
   });
 
 program

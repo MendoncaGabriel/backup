@@ -25,8 +25,6 @@
   },
   "homepage": "https://github.com/MendoncaGabriel/backup#readme",
   "dependencies": {
-    "commander": "^14.0.3",
-    "fs-extra": "^11.3.3",
-    "node-cron": "^4.2.1"
+    "commander": "^14.0.3"
   }
 }
