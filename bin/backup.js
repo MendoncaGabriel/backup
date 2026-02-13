@@ -1,9 +1,9 @@
 #!/usr/bin/env node
 
 const { program } = require("commander");
-const { runBackup } = require("../lib/runner");
-const { addPath, listPaths, removePath, setDestination, setSchedule } = require("../lib/config");
-const { startScheduler } = require("../lib/scheduler");
+const { runBackup } = require("../lib/runner.js");
+const { addPath, listPaths, removePath, setDestination, setSchedule } = require("../lib/config.js");
+const { startScheduler } = require("../lib/scheduler.js");
 
 program
   .command("run")
